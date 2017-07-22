@@ -1,2 +1,2 @@
 # vm-bl-status
-bl-status application service server - documetation and configuration
+The purpose of this repository is to document the set-up and configuration of the application server for the bl-status (Box Loading Status) system.
