@@ -20,4 +20,4 @@ The system is hosted on a Virtual Machine *[VMWare]*.  The Server OS is **Ubuntu
 
 The initial hardware configuration is as shown bellow:
 
-![vm config diagram](./images/vmconfig.PNG)
+![vm config diagram](./images/vmconfig_page.PNG)
