@@ -43,31 +43,41 @@ $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
 ```
 ### Configure Networking
-The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution (Internet & EMSMAIL.COM), and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
+The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
 
 ### Install Remote Management GUI (Webmin)
 **Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common system management tasks without having to remember and type long commands into the console.  Installation requires adding the software's repository key, location and signature to the Ubuntu Package Manger. 
 
-Edit the Ubuntu Package Manager (apt-get) Source repository URL list:
+Create/Edit a new Ubuntu Package Manager (apt-get) Source repository URL list:
 ```
-$ sudo nano /etc/apt/sources.list
+$ sudo nano /etc/apt/sources.list.d/webmin.list
 ```
 Add the line, below, to the text file:
 ```
 $ deb http://download.webmin.com/download/repository sarge contrib
 ```
-Add the Webmin PGP key signature to trust the repository
+Add the Webmin PGP key signature required to trust the repository:
 ```
 $ wget http://www.webmin.com/jcameron-key.asc
 $ sudo apt-key add jcameron-key.asc
 ```
-Run the Package Manger's update process to include the Webmin repository
+Run the Package Manger's *update* process to force the inclusion of the newly-added Webmin repository:
 ```
 $ sudo apt-get update
 ```
-Then install the Webmin package
+Then install the Webmin package:
 ```
 $ sudo apt-get install webmin
+```
+Disable the SSL (encrypted) connection by editing the Webmin's Web Server (Miniserv) settings
+```
+$ sudo nano /etc/webmin/miniserv.conf
+```
+Change the **ssl=1** setting to **ssl=0**
+
+Next, allow the default TCP Port [10000] through the firewall, via the ufw wrapper:
+```
+$ ufw allow from any to any port 10000
 ```
 
 ### Install MongoDB Database Server
