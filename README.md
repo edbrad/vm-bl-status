@@ -26,11 +26,11 @@ The Operating System is installed from the mounted ISO:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
 
-The server needs to connect to the company's Proxy Server [ISA-01] in order to download system updates through the Internet.  The installer provides a prompt for the address of the Proxy Server.  The current address is 172.16.2.174:8080.  It is entered as shown below:
+The server needs to connect to the company's Proxy Server [ISA-01] in order to download system updates through the Internet.  The installer provides a prompt for the address of the Proxy Server.  The current address is **[172.16.2.174:8080]**.  It is entered as shown below:
 
 ![ubuntu proxy server](./images/ubuntu_proxy_server.PNG)
 
-Accessing and managing the server is much more convenint from an external terminal session.  This done over a secured/encrypted SSH connection.  During the installation the OpenSSH option must be selected, as shown below:
+Accessing and managing the server is much more convenint from an external terminal session.  This done over a secured/encrypted SSH connection.  During the installation the **OpenSSH server** option must be selected, as shown below:
 
-![ubuntu proxy server](./images/ubuntu_OpenSSH_server.PNG)
+![ubuntu openssh server](./images/ubuntu_OpenSSH_server.PNG)
 
