@@ -45,5 +45,7 @@ sudo apt-get dist-upgrade
 ### Configure Networking
 The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution (Internet & EMSMAIL.COM), and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
 
+### Install Remote Management GUI (Webmin)
+**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common system management tasks without having to remember and type long commands into the console.  Installation requires adding the software's repository key, location and signature to the Ubuntu Package Manger. 
 
 ### Install MongoDB Database Server
