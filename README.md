@@ -18,6 +18,7 @@ The Box Loading **[bl-status]** system consists of a database of Box Loading sta
 ## Server OS (Ubuntu Linux) Installation & Configuration
 The system is hosted on a Virtual Machine *[VMWare]*.  The Server OS is **Ubuntu 16.04 LTS**, a widely-used and freely available Linux Operating system distribution.  A link to the installer image (ISO) is available here: https://www.ubuntu.com/download/server 
 
+### OS Installation
 The initial virtual hardware configuration is as shown bellow:
 
 ![vm config diagram](./images/vmconfig_page.PNG)
@@ -26,7 +27,7 @@ The Operating System is installed from the mounted ISO:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
 
-The server needs to connect to the company's Proxy Server [ISA-01] in order to download system updates through the Internet.  The installer provides a prompt for the address of the Proxy Server.  The current address is **[172.16.2.174:8080]**.  It is entered as shown below:
+The server needs to connect to the company's **Proxy Server** [ISA-01] in order to download system updates through the Internet.  The installer provides a prompt for the address of the Proxy Server.  The current address is **[172.16.2.174:8080]**.  It is entered as shown below:
 
 ![ubuntu proxy server](./images/ubuntu_proxy_server.PNG)
 
@@ -34,3 +35,15 @@ Accessing and managing the server is much more convenint from an external termin
 
 ![ubuntu openssh server](./images/ubuntu_OpenSSH_server.PNG)
 
+### Install OS Updates
+After the initial install, there will be system updates and security patches available to be installed. The Ubuntu Package Manager **(apt-get)** is used to retreive and install any available OS updates from the public online repsitories.  Enter the commands below to perform the update:
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+```
+### Configure Networking
+The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution (Internet & EMSMAIL.COM), and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
+
+
+### Install MongoDB Database Server
