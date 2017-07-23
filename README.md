@@ -22,6 +22,6 @@ The initial virtual hardware configuration is as shown bellow:
 
 ![vm config diagram](./images/vmconfig_page.PNG)
 
-The Operating Syatem is installed from the mounted ISO:
+The Operating System is installed from the mounted ISO:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
