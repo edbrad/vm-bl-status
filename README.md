@@ -13,3 +13,5 @@ The Box Loading [bl-status] system consists of a database of status information,
 * **Angular [version 4]:** Front-end Javascript Framework. Used to develop the GUI Web application (http://angular.io)
 
 
+![vm-bl-status diagram](./images/vm-bl-status_server.png)
+
