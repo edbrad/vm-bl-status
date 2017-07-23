@@ -38,14 +38,36 @@ Accessing and managing the server is much more convenint from an external termin
 ### Install OS Updates
 After the initial install, there will be system updates and security patches available to be installed. The Ubuntu Package Manager **(apt-get)** is used to retreive and install any available OS updates from the public online repsitories.  Enter the commands below to perform the update:
 ```
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get dist-upgrade
+$ sudo apt-get update
+$ sudo apt-get upgrade
+$ sudo apt-get dist-upgrade
 ```
 ### Configure Networking
 The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution (Internet & EMSMAIL.COM), and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
 
 ### Install Remote Management GUI (Webmin)
 **Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common system management tasks without having to remember and type long commands into the console.  Installation requires adding the software's repository key, location and signature to the Ubuntu Package Manger. 
+
+Edit the Ubuntu Package Manager (apt-get) Source repository URL list:
+```
+$ sudo nano /etc/apt/sources.list
+```
+Add the line, below, to the text file:
+```
+$ deb http://download.webmin.com/download/repository sarge contrib
+```
+Add the Webmin PGP key signature to trust the repository
+```
+$ wget http://www.webmin.com/jcameron-key.asc
+$ sudo apt-key add jcameron-key.asc
+```
+Run the Package Manger's update process to include the Webmin repository
+```
+$ sudo apt-get update
+```
+Then install the Webmin package
+```
+$ sudo apt-get install webmin
+```
 
 ### Install MongoDB Database Server
