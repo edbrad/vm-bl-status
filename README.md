@@ -45,6 +45,38 @@ $ sudo apt-get dist-upgrade
 ### Configure Networking
 The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
 
+Edit the system network stettings file:
+```
+$ sudo nano /etc/network/interfaces
+```
+Update the network IP and DNS settings as shown bellow:
+```
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto ens160
+#iface ens160 inet dhcp
+iface ens160 inet static
+        address 172.16.168.110
+        netmask 255.255.0.0
+        gateway 172.16.2.174
+        dns-nameservers 172.16.2.167 8.8.8.8 8.8.4.4
+        dns-domain emsmail.com
+```
+
+Enable the Linux Firewall:
+```
+$ sudo ufw enable
+```
+
+
 ### Install Remote Management GUI (Webmin)
 **Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common system management tasks without having to remember and type long commands into the console.  Installation requires adding the software's repository key, location and signature to the Ubuntu Package Manger. 
 
