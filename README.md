@@ -18,8 +18,6 @@ The Box Loading **[bl-status]** system consists of a database of Box Loading sta
 ## Server OS (Ubuntu Linux) Installation & Configuration
 The system is hosted on a Virtual Machine *[VMWare]*.  The Server OS is **Ubuntu 16.04 LTS**, a widely-used and freely available Linux Operating system distribution.  A link to the installer image (ISO) is available here: https://www.ubuntu.com/download/server 
 
-###ddddd
-
 The initial virtual hardware configuration is as shown bellow:
 
 ![vm config diagram](./images/vmconfig_page.PNG)
