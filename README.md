@@ -25,3 +25,8 @@ The initial virtual hardware configuration is as shown bellow:
 The Operating System is installed from the mounted ISO:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
+
+The server needs to connect to the company's Proxy Server [ISA-01] in order to download system updates through the Internet.  The installer provides a prompt for the address of the Proxy Server.  The current address is 172.16.2.174.  It is entered as shown below:
+
+![ubuntu proxy server](./images/ubuntu_proxy_server.PNG)
+
