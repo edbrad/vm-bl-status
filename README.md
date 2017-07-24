@@ -142,5 +142,24 @@ Next, download/install the MongoDB software:
 ```
 sudo apt-get install -y mongodb-org
 ```
+After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB:
+
+- A new service configuration file must be created by issuing the command below:
+```
+sudo nano /etc/systemd/system/mongodb.service
+```
+- Paste the following contents into the text file:
+```
+[Unit]
+Description=High-performance, schema-free document-oriented database
+After=network.target
+
+[Service]
+User=mongodb
+ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
+
+[Install]
+WantedBy=multi-user.target
+```
 
 
