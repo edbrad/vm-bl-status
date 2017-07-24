@@ -26,7 +26,6 @@ The initial virtual hardware configuration is as shown bellow:
 The Operating System is installed from the mounted ISO:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
-
 The server requires a connection to the company's **Proxy Server** [ISA-01] in order to download system updates from the Internet.  The installer provides a prompt for the address of a Proxy Server.  The current address is **[172.16.2.174:8080]**.  It is entered as shown below:
 
 ![ubuntu proxy server](./images/ubuntu_proxy_server.PNG)
@@ -49,7 +48,7 @@ $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
 ```
 ### Configure Networking
-The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a Static IP address, specifing DNS Servers to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux Firewall (w/ Ubuntu ufw) to protect the server from Network attacks.
+The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a **Static IP address**, specifing **DNS Servers** to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux **Firewall** (w/ Ubuntu ufw) to protect the server from Network attacks.
 
 Edit the system network stettings file:
 ```
@@ -77,24 +76,24 @@ iface ens160 inet static
         dns-domain emsmail.com
 ```
 
-Enable the Linux Firewall:
+Enable the Linux Firewall (https://help.ubuntu.com/community/UFW):
 ```
 $ sudo ufw enable
 ```
 
 
 ### Install Remote Management GUI (Webmin)
-**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common system management tasks without having to remember and type long commands into the console.  Installation requires adding the software's repository key, location and signature to the Ubuntu Package Manger. 
+**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common Linux system management tasks without having to remember and type long commands at the console.  Installation requires adding the software's repository key, location, and signature in the Ubuntu Package Manger (apt-get). 
 
-Create/Edit a new Ubuntu Package Manager (apt-get) Source repository URL list:
+First, create/edit a new Ubuntu Package Manager (apt-get) Source Repository URL list:
 ```
 $ sudo nano /etc/apt/sources.list.d/webmin.list
 ```
-Add the line, below, to the text file:
+Then, add the line, below, to the text file and save it:
 ```
 $ deb http://download.webmin.com/download/repository sarge contrib
 ```
-Add the Webmin PGP key signature required to trust the repository:
+Next, get the Webmin PGP key signature file, which is required by the Package Manager to trust the repository:
 ```
 $ wget http://www.webmin.com/jcameron-key.asc
 $ sudo apt-key add jcameron-key.asc
@@ -107,13 +106,13 @@ Then install the Webmin package:
 ```
 $ sudo apt-get install webmin
 ```
-Disable the SSL (encrypted) connection by editing the Webmin's Web Server (Miniserv) settings
+Given the low security nature of this application, disable the SSL (encrypted) connection by editing the Webmin's Web Server (Miniserv) settings:
 ```
 $ sudo nano /etc/webmin/miniserv.conf
 ```
 Change the **ssl=1** setting to **ssl=0**
 
-Next, allow the default TCP Port [10000] through the firewall, via the ufw wrapper:
+Next, allow the default TCP Port [10000] through the firewall, via the ufw Firewall configuration tool (https://help.ubuntu.com/community/UFW):
 ```
 $ ufw allow from any to any port 10000
 ```
