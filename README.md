@@ -187,7 +187,12 @@ $ sudo systemctl enable mongodb
 ```
 For testing and diagnostic purposes, external access to the MongoDB server is required.  The MongoDB IP binding must be changed from only internal/localhost connections to outside IP access.  Also, the Linux Firewall must be updated to allow external access to the TCP Port that MongoDB listens on:
 
-- Edit the configuration file:
+- To allow external/LAN access to the database, update the MongoDB configuration file:
 ```
 $ sudo nano /etc/mongod.conf
+```
+Change the bing_ip parameter to include the Server's static IP address:
+```
+# Listen to local and LAN interfaces.
+bind_ip = 127.0.0.1,172.16.168.110
 ```
