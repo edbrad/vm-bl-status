@@ -124,4 +124,4 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to submit quereies to the database.
+**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.
