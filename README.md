@@ -26,6 +26,7 @@ The initial virtual hardware configuration is as shown bellow:
 The Operating System is installed from the mounted ISO:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
+
 The server requires a connection to the company's **Proxy Server** [ISA-01] in order to download system updates from the Internet.  The installer provides a prompt for the address of a Proxy Server.  The current address is **[172.16.2.174:8080]**.  It is entered as shown below:
 
 ![ubuntu proxy server](./images/ubuntu_proxy_server.PNG)
@@ -123,4 +124,4 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used and popular NoSQL database management system, will be used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library.
+**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to submit quereies to the database.
