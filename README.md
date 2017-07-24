@@ -128,11 +128,11 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 The first step is to import the MongoDB public GPG/PGP public key into the Ubuntu Package Manager (to verify the authentcity of the package):
 ```
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 ```
 Next, create a new Package Manager repository list file for MongoDB:
 ```
-echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+$ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
 ```
 Run the Package Manger's *update* process to force the inclusion of the newly-added MongoDB repository:
 ```
@@ -142,11 +142,11 @@ Next, download/install the MongoDB software:
 ```
 sudo apt-get install -y mongodb-org
 ```
-After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB:
+After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB (from https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04):
 
 - A new service configuration file must be created by issuing the command below:
 ```
-sudo nano /etc/systemd/system/mongodb.service
+$ sudo nano /etc/systemd/system/mongodb.service
 ```
 - Paste the following contents into the text file:
 ```
@@ -161,5 +161,27 @@ ExecStart=/usr/bin/mongod --quiet --config /etc/mongod.conf
 [Install]
 WantedBy=multi-user.target
 ```
-
-
+- Next, start the newly-defined service:
+```
+$ sudo systemctl start mongodb
+```
+- to verify the service running, type the following command:
+```
+$ sudo systemctl status mongodb
+```
+The output should be similar to below:
+```
+mongodb.service - High-performance, schema-free document-oriented database
+   Loaded: loaded (/etc/systemd/system/mongodb.service; enabled; vendor preset: enabled)
+   Active: active (running) since Mon 2016-04-25 14:57:20 EDT; 1min 30s ago
+ Main PID: 4093 (mongod)
+    Tasks: 16 (limit: 512)
+   Memory: 47.1M
+      CPU: 1.224s
+   CGroup: /system.slice/mongodb.service
+           └─4093 /usr/bin/mongod --quiet --config /etc/mongod.conf
+```
+- Finally, enable the service to automatically start when the server boots:
+```
+$ sudo systemctl enable mongodb
+```
