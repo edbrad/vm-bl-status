@@ -50,7 +50,7 @@ $ sudo apt-get dist-upgrade
 ```
 
 ### Configure Networking
-The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a **Static IP address**, specifing **DNS Servers** to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux **Firewall** (w/ Ubuntu ufw) to protect the server from Network attacks.
+The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a **Static IP address**, specifing **DNS Servers** to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux **Firewall** (w/ Ubuntu ufw) to protect the server from Network attacks (taken from: https://michael.mckinnon.id.au/2016/05/05/configuring-ubuntu-16-04-static-ip-address/).
 
 Edit the system network stettings file:
 ```
@@ -85,7 +85,7 @@ $ sudo ufw enable
 
 
 ### Install Remote Management GUI (Webmin)
-**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common Linux system management tasks without having to remember and type long commands at the console.  Installation requires adding the software's repository key, location, and signature in the Ubuntu Package Manger (apt-get). 
+**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common Linux system management tasks without having to remember and type long commands at the console.  Installation requires adding the software's repository key, location, and signature in the Ubuntu Package Manger (taken from: http://www.techrepublic.com/article/how-to-install-ubuntu-server-16-04-and-the-web-based-admin-tool-webmin/). 
 
 First, create/edit a new Ubuntu Package Manager (apt-get) Source Repository URL list:
 ```
@@ -124,7 +124,7 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available Community Edition of MongoDB.  The most recent versio is **[3.4]**.
+**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available Community Edition of MongoDB.  The most recent versio is **[3.4]**. Instructions taken from: -	http://www.techrepublic.com/article/how-to-install-ubuntu-server-16-04-and-the-web-based-admin-tool-webmin/ 
 
 The first step is to import the MongoDB public GPG/PGP public key into the Ubuntu Package Manager (to verify the authentcity of the package):
 ```
@@ -142,7 +142,7 @@ Next, download/install the MongoDB software:
 ```
 sudo apt-get install -y mongodb-org
 ```
-After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB (from https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04):
+After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB (taken from: -	https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-ubuntu/  & https://www.mkyong.com/mongodb/mongodb-allow-remote-access/):
 
 - A new service configuration file must be created by issuing the command below:
 ```
@@ -184,4 +184,10 @@ mongodb.service - High-performance, schema-free document-oriented database
 - Finally, enable the service to automatically start when the server boots:
 ```
 $ sudo systemctl enable mongodb
+```
+For testing and diagnostic purposes, external access to the MongoDB server is required.  The MongoDB IP binding must be changed from only internal/localhost connections to outside IP access.  Also, the Linux Firewall must be updated to allow external access to the TCP Port that MongoDB listens on:
+
+- Edit the configuration file:
+```
+$ sudo nano /etc/mongod.conf
 ```
