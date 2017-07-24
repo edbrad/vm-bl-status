@@ -47,6 +47,7 @@ $ sudo apt-get update
 $ sudo apt-get upgrade
 $ sudo apt-get dist-upgrade
 ```
+
 ### Configure Networking
 The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a **Static IP address**, specifing **DNS Servers** to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux **Firewall** (w/ Ubuntu ufw) to protect the server from Network attacks.
 
@@ -122,3 +123,4 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
+MongoDB, a widely-used and popular NoSQL database management system will be used to store the Box Loading status information.  The API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library.
