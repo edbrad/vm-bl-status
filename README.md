@@ -193,8 +193,12 @@ To allow external/LAN access to the database:
 ```
 $ sudo nano /etc/mongod.conf
 ```
-- Change the **bind_ip** parameter to include the Server's static IP address:
+- Change the **bind_ip** parameter to include the **Server's** Static IP address:
 ```
 # Listen to local and LAN interfaces.
 bind_ip = 127.0.0.1,172.16.168.110
+```
+To allow MongoDB traffic through the Linux Firewall, enter the following ufw command:
+```
+sudo ufw allow from any to any port 27017
 ```
