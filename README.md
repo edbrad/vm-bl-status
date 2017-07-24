@@ -124,4 +124,23 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.
+**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available Community Edition of MongoDB.  The most recent versio is **[3.4]**.
+
+The first step is to import the MongoDB public GPG/PGP public key into the Ubuntu Package Manager (to verify the authentcity of the package):
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+```
+Next, create a new Package Manager repository list file for MongoDB:
+```
+echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+```
+Run the Package Manger's *update* process to force the inclusion of the newly-added MongoDB repository:
+```
+$ sudo apt-get update
+```
+Next, download/install the MongoDB software:
+```
+sudo apt-get install -y mongodb-org
+```
+
+
