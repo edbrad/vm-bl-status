@@ -1,5 +1,5 @@
-# vm-bl-status Application Server
-The purpose of this repository is to document the set-up and configuration of the application server for the bl-status (*Box Loading Status*) system.
+# vm-bl-status - Application Server
+The purpose of this repository is to document the set-up and configuration of the Application Server for the **bl-status** (*Box Loading Status*) system.
 
 ## Overview
 The Box Loading Status **[bl-status]** system consists of a database of Box Loading Status information, a **RESTful** WebAPI that provides external access to the database (as well as performing any intermediate data processing), and a front-end Web-based GUI application that allows users to manage the Box Loading status information. These primary components are hosted on a single server (a virtual machine). The Application Server is built entirely using the following, freely available, *Open Source* products and technologies:
