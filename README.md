@@ -201,10 +201,10 @@ To allow MongoDB traffic through the Linux Firewall, enter the following **ufw**
 $ sudo ufw allow from any to any port 27017
 ```
 ### Prepare Django Environment with uWSGI and Nginx
-The **WebAPI** for the bl-status system is built with the widely used Django REST framework (*Python-based*).  **uWSGI** is an Application Server that exposes Python-Based Websites to a network. **Nginx** is a widely-used Web Server and Reverse-Proxy Server.  It allows multiple, distinct, sites to be hosted on a single IP address.  Nginx routes incoming http/https requests to the proper site, based on the Domain specified in the URL request parameter data (e.g. *www.siteA.com* --> **siteA**, *www.siteB.com* --> **siteB**).  For the bl-status application, There are two Web Sites:
+The **WebAPI** for the bl-status system is built with the widely used Django REST framework (*Python-based*).  **uWSGI** is an Application Server that exposes Python-Based Websites to a network. **Nginx** is a widely-used Web Server and Reverse-Proxy Server.  It allows multiple, distinct, sites to be hosted on a single IP address.  Nginx routes incoming http/https requests to the proper site, based on the Domain specified in the URL request parameter data (e.g. *www.siteA.com* --> **siteA**, *www.siteB.com* --> **siteB**).  The **bl-status** system consists of *two* Web Sites:
 
 * WebAPI site (Django REST Framework) - via uWSGI
-* Web Application Site (Static Angular files)
+* Web Application site (Static Angular files)
 
 The instructions below are taken from: https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
 
