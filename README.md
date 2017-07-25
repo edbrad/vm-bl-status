@@ -214,3 +214,9 @@ Ubuntu Linux [16.04] comes with **Python** installed by default.  There are curr
 * **Version 3.x** for newer code
 
 Since this is a brand new system, **Version 3** will be used to develop the RESTful API (Django).
+
+There are some commonly-used tools available that aid in devlopment and deployment of Python-based applications.  This includes: 
+* **pip**: the de-facto *Package Manager* for Python
+* **VirtualEnv**: which provides a *"sandboxing"* mechanism for encapsulating a project's dependencies with the specific project
+* **VirtualEnvWrapper**: an add-on for VirtualEnv that provides additional automation tools for working with Python-based projects.
+
