@@ -248,12 +248,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 Next, install **pip** (*pip3*) by entering the following commands:
 ```
-sudo apt-get update
-sudo apt-get install python3-pip
+$ sudo apt-get update
+$ sudo apt-get install python3-pip
 ```
 After pip is installed, install **VirtualEnv** and **VirtualEnvWrapper** (*globally*) on the server (includes a pip update):
 ```
-sudo -H pip3 install --upgrade pip
-sudo -H pip3 install virtualenv virtualenvwrapper
+$ sudo -H pip3 install --upgrade pip
+$ sudo -H pip3 install virtualenv virtualenvwrapper
 ```
 
