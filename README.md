@@ -200,6 +200,13 @@ To allow MongoDB traffic through the Linux Firewall, enter the following **ufw**
 ```
 $ sudo ufw allow from any to any port 27017
 ```
+### External Access from a Terminal
+Linux is a tru multi-user Operating System. Like with a traditional Mainframe OS/system, Linux allows for mutliple simultaneous Terminal connections/sessions over a TCP/IP network. Telnet (or TN3270) has been used in the past, but modern Unix/Linux terminal sessions are implemented through SSH (Secure Shell). SSH-based connections are secured through encryption.
+
+**PuTTY**(http://www.putty.org) is a popular, bare-bones, and freely available, client-side program for SSH terminal sessions. It provides all the basic Terminal fucntionality needed to remotely work on a Linux server.
+
+**MobaXterm**(http://mobaxterm.mobatek.net/) is more robust and feature-rich Terminal client application for Windows.    
+
 ### Prepare Django Environment with uWSGI and Nginx
 The **WebAPI** for the bl-status system is built with the widely used Django REST framework (*Python-based*).  **uWSGI** is an Application Server that exposes Python-Based Websites to a network. **Nginx** is a widely-used Web Server and Reverse-Proxy Server.  It allows multiple, distinct, sites to be hosted on a single IP address.  Nginx routes incoming http/https requests to the proper site, based on the Domain specified in the URL of the HTTP request (e.g. http://*www.siteA.com* --> **siteA**, http://*www.siteB.com* --> **siteB**).  The **bl-status** system consists of *two* Web Sites:
 
@@ -220,3 +227,11 @@ There are some commonly-used tools available that aid in devlopment and deployme
 * **VirtualEnv**: Provides a *"sandboxing"* mechanism for encapsulating a project's dependencies with the specific project
 * **VirtualEnvWrapper**: An add-on for *VirtualEnv* that provides additional automation tools for working with Python-based projects.
 
+First, verify that Python (3) is actually installed, by typing:
+```
+$ python3
+```
+The output should be similar to what is shown bellow:
+```
+
+```
