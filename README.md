@@ -15,6 +15,8 @@ The **Box Loading Status** **[*bl-status*]** system consists of a ***Database***
 
 ![vm-bl-status diagram](./images/vm-bl-status_server.PNG)
 
+The source code and documentation version control for this project is maintained using Git and stored a GitHub repository. 
+
 ## Server OS (Ubuntu Linux) Installation & Configuration
 The system is hosted on a Virtual Machine *[VMWare]*.  The Server Operating System is **Ubuntu 16.04 LTS**, a widely-used and freely available Linux Operating system distribution.  A link to the installer image (ISO) is available here: https://www.ubuntu.com/download/server 
 
