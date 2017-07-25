@@ -238,5 +238,9 @@ $ python3
 ```
 The output should be similar to what is shown bellow:
 ```
-
+netadmin@vm-bl-status:~$ python3
+Python 3.5.2 (default, Nov 17 2016, 17:05:23)
+[GCC 5.4.0 20160609] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
