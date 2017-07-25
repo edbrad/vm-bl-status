@@ -122,7 +122,7 @@ The Webmin GUI will then be availble via the URL: http://172.16.168.110:10000
 ![webmin dashboard](./images/webmin_dashboard.PNG)
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used Open Source NoSQL database system, is used to store the Box Loading status information.  The REST API will process incoming **CRUD** (**C**reate **R**ead **U**pdate **D**elete) requests (mapped to http verbs: POST, GET, PUT, & DELETE) using the **pyMongo** database access library. The pyMongo library allows the Django Python code to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available **Community Edition** of MongoDB.  The current version is: **[3.4]**. 
+**MongoDB**, a widely-used Open Source NoSQL database system, is used to store the Box Loading status information.  The REST API will process incoming **CRUD** (**C**reate **R**ead **U**pdate **D**elete) requests (mapped from http verbs: POST, GET, PUT, & DELETE) using the **PyMongo** library for MongoDB (https://api.mongodb.com/python/current/). The PyMongo library allows the Django Python code to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available **Community Edition** of MongoDB.  The current version is: **[3.4]**. 
 
 The first step is to import the MongoDB public GPG/PGP key file into the Ubuntu Package Manager (to verify the authentcity of the software package):
 ```
