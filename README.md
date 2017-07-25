@@ -124,7 +124,7 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available Community Edition of MongoDB.  The current version is: **[3.4]**. 
+**MongoDB**, a widely-used Open Source NoSQL database system, is used to store the Box Loading status information.  The REST API will process incoming **CRUD** (**C**reate **R**ead **U**pdate **D**elete) requests (mapped to http verbs: POST,GET,PUT,DELETE) using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available **Community Edition** of MongoDB.  The current version is: **[3.4]**. 
 
 The first step is to import the MongoDB public GPG/PGP public key file into the Ubuntu Package Manager (to verify the authentcity of the package):
 ```
@@ -142,9 +142,9 @@ Next, download/install the MongoDB software:
 ```
 sudo apt-get install -y mongodb-org
 ```
-After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB (taken from:	https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-ubuntu/  & https://www.mkyong.com/mongodb/mongodb-allow-remote-access/):
+After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB (taken from:	https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-ubuntu/ & https://www.mkyong.com/mongodb/mongodb-allow-remote-access/):
 
-- A new service configuration file must be created by issuing the command below:
+- A new systemd service configuration file must be created by issuing the command below:
 ```
 $ sudo nano /etc/systemd/system/mongodb.service
 ```
@@ -185,7 +185,7 @@ mongodb.service - High-performance, schema-free document-oriented database
 ```
 $ sudo systemctl enable mongodb
 ```
-For testing and diagnostic purposes, external access to the MongoDB server is required.  The MongoDB IP binding must be changed from only internal/localhost connections to outside IP access.  Also, the Linux Firewall must be updated to allow external/LAN access to the TCP Port that MongoDB listens on.
+For management, testing, and diagnostic purposes, external/LAN access to the MongoDB server is required.  The MongoDB IP binding must be updated to allow to outside/LAN IP access.  Also, the Linux Firewall must be updated to allow external/LAN access to the TCP Port that MongoDB listens on.
 
 To allow external/LAN access to the database: 
 
@@ -200,5 +200,5 @@ bind_ip = 127.0.0.1,172.16.168.110
 ```
 To allow MongoDB traffic through the Linux Firewall, enter the following **ufw** command:
 ```
-sudo ufw allow from any to any port 27017
+$ sudo ufw allow from any to any port 27017
 ```
