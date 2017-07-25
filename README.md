@@ -251,13 +251,13 @@ Next, install **pip** (*pip3*) by entering the following commands:
 $ sudo apt-get update
 $ sudo apt-get install python3-pip
 ```
-After pip is installed, install **VirtualEnv** and **VirtualEnvWrapper** (*globally*) on the server (includes a pip update):
+After pip is installed, install **VirtualEnv** and **VirtualEnvWrapper** (*globally*) on the server (includes an obligatory pip self-update):
 ```
 $ sudo -H pip3 install --upgrade pip
 $ sudo -H pip3 install virtualenv virtualenvwrapper
 ```
 
-The **Linux Bash Shell** configuration must be updated to better support the VirtualEnvWrapper.sh script. The commands below tell VirtualEnvWrapper to store Virtual environment information from multiple projects in a central folder (**Env**):
+The **Linux Bash Shell** configuration must be updated to better support the VirtualEnvWrapper.sh script. The commands below tell VirtualEnvWrapper to store Virtual environment information from multiple projects under a central folder (**Env**):
 ```
 $ echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3" >> ~/.bashrc
 $ echo "export WORKON_HOME=~/Env" >> ~/.bashrc
