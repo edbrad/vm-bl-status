@@ -230,9 +230,9 @@ Ubuntu Linux [16.04] comes with **Python** installed by default.  There are curr
 Since this is a brand new system, **Version 3** will be used to develop the RESTful API (Django).
 
 There are some commonly-used tools available that aid in devlopment and deployment of Python-based applications.  This includes: 
-* **pip**: The de-facto *Package Manager* for Python
-* **VirtualEnv**: Provides a *"sandboxing"* mechanism for encapsulating a project's dependencies with the specific project
-* **VirtualEnvWrapper**: An add-on for *VirtualEnv* that provides additional automation tools for working with Python-based projects.
+* **pip**: The de-facto *Package Manager* for Python (https://pypi.python.org/pypi/pip)
+* **VirtualEnv**: Provides a *"sandboxing"* mechanism for encapsulating a project's dependencies with the specific project (https://virtualenv.pypa.io/en/stable/)
+* **VirtualEnvWrapper**: An add-on for *VirtualEnv* that provides additional automation tools for working with Python-based projects (https://virtualenvwrapper.readthedocs.io/en/latest/)
 
 First, verify that Python (3) is actually installed, by typing:
 ```
@@ -257,3 +257,10 @@ $ sudo -H pip3 install --upgrade pip
 $ sudo -H pip3 install virtualenv virtualenvwrapper
 ```
 
+The **Linux Bash Shell** configuration must be updated to better support the VirtualEnvWrapper.sh script. The commands below tell VirtualEnvWrapper to store Virtual environment information from multiple projects in a central folder (**Env**):
+```
+$ echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3" >> ~/.bashrc
+$ echo "export WORKON_HOME=~/Env" >> ~/.bashrc
+$ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+$ source ~/.bashrc
+```
