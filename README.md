@@ -124,9 +124,9 @@ The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000*
 
 
 ### Install MongoDB Database Server
-**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available Community Edition of MongoDB.  The most recent versio is **[3.4]**. 
+**MongoDB**, a widely-used Open Source NoSQL database management system, is used to store the Box Loading status information.  The REST API will process incoming CRUD (**C**reate **R**ead **U**pdate **D**elete) requests using the **pyMongo** database access library. The pyMongo library allows Python to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available Community Edition of MongoDB.  The current version is: **[3.4]**. 
 
-The first step is to import the MongoDB public GPG/PGP public key into the Ubuntu Package Manager (to verify the authentcity of the package):
+The first step is to import the MongoDB public GPG/PGP public key file into the Ubuntu Package Manager (to verify the authentcity of the package):
 ```
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 ```
@@ -185,7 +185,7 @@ mongodb.service - High-performance, schema-free document-oriented database
 ```
 $ sudo systemctl enable mongodb
 ```
-For testing and diagnostic purposes, external access to the MongoDB server is required.  The MongoDB IP binding must be changed from only internal/localhost connections to outside IP access.  Also, the Linux Firewall must be updated to allow external access to the TCP Port that MongoDB listens on.
+For testing and diagnostic purposes, external access to the MongoDB server is required.  The MongoDB IP binding must be changed from only internal/localhost connections to outside IP access.  Also, the Linux Firewall must be updated to allow external/LAN access to the TCP Port that MongoDB listens on.
 
 To allow external/LAN access to the database: 
 
@@ -198,7 +198,7 @@ $ sudo nano /etc/mongod.conf
 # Listen to local and LAN interfaces.
 bind_ip = 127.0.0.1,172.16.168.110
 ```
-To allow MongoDB traffic through the Linux Firewall, enter the following ufw command:
+To allow MongoDB traffic through the Linux Firewall, enter the following **ufw** command:
 ```
 sudo ufw allow from any to any port 27017
 ```
