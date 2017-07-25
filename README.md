@@ -83,7 +83,6 @@ Enable the Linux Firewall (https://help.ubuntu.com/community/UFW):
 $ sudo ufw enable
 ```
 
-
 ### Install Remote Management GUI (Webmin)
 **Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common Linux system management tasks without having to remember and type long commands at the console.  Installation requires adding the software's repository key, location, and signature in the Ubuntu Package Manger (taken from: http://www.techrepublic.com/article/how-to-install-ubuntu-server-16-04-and-the-web-based-admin-tool-webmin/). 
 
@@ -118,14 +117,14 @@ Next, allow the default TCP Port [10000] through the firewall, via the ufw Firew
 ```
 $ ufw allow from any to any port 10000
 ```
-The Webmin GUI will then be availble via the URL: **http://172.16.168.110:10000**
+The Webmin GUI will then be availble via the URL: http://172.16.168.110:10000
 
 ![webmin dashboard](./images/webmin_dashboard.PNG)
 
 ### Install MongoDB Database Server
 **MongoDB**, a widely-used Open Source NoSQL database system, is used to store the Box Loading status information.  The REST API will process incoming **CRUD** (**C**reate **R**ead **U**pdate **D**elete) requests (mapped to http verbs: POST, GET, PUT, & DELETE) using the **pyMongo** database access library. The pyMongo library allows the Django Python code to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available **Community Edition** of MongoDB.  The current version is: **[3.4]**. 
 
-The first step is to import the MongoDB public GPG/PGP public key file into the Ubuntu Package Manager (to verify the authentcity of the package):
+The first step is to import the MongoDB public GPG/PGP key file into the Ubuntu Package Manager (to verify the authentcity of the software package):
 ```
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 ```
@@ -184,7 +183,7 @@ mongodb.service - High-performance, schema-free document-oriented database
 ```
 $ sudo systemctl enable mongodb
 ```
-For management, testing, and diagnostic purposes, external/LAN access to the MongoDB server is required.  The MongoDB IP binding must be updated to allow to outside/LAN IP access.  Also, the Linux Firewall must be updated to allow external/LAN access to the TCP Port that MongoDB listens on.
+For management, testing, and diagnostic purposes, external/LAN access to the MongoDB server is required.  The MongoDB IP binding configuration setting must be updated to allow outside/LAN IP access.  Also, the Linux Firewall must be updated to allow external/LAN access to the TCP Port that MongoDB listens on.
 
 To allow external/LAN access to the database: 
 
