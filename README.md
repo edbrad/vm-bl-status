@@ -2,7 +2,7 @@
 The purpose of this repository is to document the set-up and configuration of the Application Server for the **bl-status** (*Box Loading Status*) system.
 
 ## Overview
-The Box Loading Status **[bl-status]** system consists of a database of Box Loading Status information, a **RESTful** WebAPI that provides external access to the database (as well as performing any intermediate data processing), and a front-end Web-based GUI application that allows users to manage the Box Loading status information. These primary components are hosted on a single server (a virtual machine). The Application Server is built entirely using the following, freely available, *Open Source* products and technologies:
+The **Box Loading Status** **[*bl-status*]** system consists of a ***Database*** of Box Loading Status information data, a ***RESTful WebAPI*** that provides external access to the data (as well as performing any intermediate data processing), and a front-end ***Web-based GUI Application*** that allows users to manage the Box Loading status information. These primary components are hosted on a single server (a virtual machine). The Application Server is built entirely using the following, freely available, *Open Source* products and technologies:
 
 * **Ubuntu Linux [16.04 LTS]:** Host Operating System (http://www.ubuntu.com)
 * **MongoDB [version 3.4]:** NoSQL Database server (http://mongodb.org)
@@ -16,22 +16,22 @@ The Box Loading Status **[bl-status]** system consists of a database of Box Load
 ![vm-bl-status diagram](./images/vm-bl-status_server.PNG)
 
 ## Server OS (Ubuntu Linux) Installation & Configuration
-The system is hosted on a Virtual Machine *[VMWare]*.  The Server OS is **Ubuntu 16.04 LTS**, a widely-used and freely available Linux Operating system distribution.  A link to the installer image (ISO) is available here: https://www.ubuntu.com/download/server 
+The system is hosted on a Virtual Machine *[VMWare]*.  The Server Operating System is **Ubuntu 16.04 LTS**, a widely-used and freely available Linux Operating system distribution.  A link to the installer image (ISO) is available here: https://www.ubuntu.com/download/server 
 
 ### OS Installation
 The initial virtual hardware configuration is as shown bellow:
 
 ![vm config diagram](./images/vmconfig_page.PNG)
 
-The Operating System is installed from the mounted ISO:
+The Operating System is installed from the mounted ISO file:
 
 ![ubuntu welcome](./images/ubuntu_welcome.PNG)
 
-The server requires a connection to the company's **Proxy Server** [ISA-01] in order to download system updates from the Internet.  The installer provides a prompt for the address of a Proxy Server.  The current address is **[172.16.2.174:8080]**.  It is entered as shown below:
+The server requires a connection to the company's **Proxy Server** [ISA-01] in order to download system updates from the Internet.  The installer provides a prompt for the address of a Proxy Server.  The current EMS primary Proxy Server address is **[172.16.2.174:8080]**.  It is entered as shown below:
 
 ![ubuntu proxy server](./images/ubuntu_proxy_server.PNG)
 
-Accessing and managing the server is much more convenient from an external terminal session.  This done over a secured/encrypted SSH (Secure Shell) connection.  To enable this functionality during the installation, the **OpenSSH server** option should be selected, as shown below:
+Accessing and managing the server is much more convenient from an external terminal session.  This done over a secured/encrypted SSH (Secure Shell) connection.  To enable this functionality during the installation process, the **OpenSSH Server** option should be selected, as shown below:
 
 ![ubuntu openssh server](./images/ubuntu_OpenSSH_server.PNG)
 
@@ -50,9 +50,9 @@ $ sudo apt-get dist-upgrade
 ```
 
 ### Configure Networking
-The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a **Static IP address**, specifing **DNS Servers** to be used for name resolution *(Internet & EMSMAIL.COM)*, and enabling the Linux **Firewall** (w/ Ubuntu ufw) to protect the server from Network attacks (taken from: https://michael.mckinnon.id.au/2016/05/05/configuring-ubuntu-16-04-static-ip-address/).
+The TCP/IP Networking configuration must be adjusted to be beter suited for a Server role.  This includes: Assigning a **Static IP address**, specifing **DNS Servers** to be used for name resolution on the Local LAN and the Internet, and enabling the Linux **Firewall** (w/ Ubuntu ufw) to protect the server from Network attacks (taken from: https://michael.mckinnon.id.au/2016/05/05/configuring-ubuntu-16-04-static-ip-address/).
 
-Edit the system network stettings file:
+Edit the system network settings file:
 ```
 $ sudo nano /etc/network/interfaces
 ```
@@ -84,7 +84,7 @@ $ sudo ufw enable
 ```
 
 ### Install Remote Management GUI (Webmin)
-**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common Linux system management tasks without having to remember and type long commands at the console.  Installation requires adding the software's repository key, location, and signature in the Ubuntu Package Manger (taken from: http://www.techrepublic.com/article/how-to-install-ubuntu-server-16-04-and-the-web-based-admin-tool-webmin/). 
+**Webmin** is an popular Open Source Web-based Unix/Linux system management tool (http://webmin.com). It provides a comprehensive set of GUI tools to help with monitoring and performing common Linux system management tasks. Installation requires adding the software's repository key, location, and signature in the Ubuntu Package Manger (taken from: http://www.techrepublic.com/article/how-to-install-ubuntu-server-16-04-and-the-web-based-admin-tool-webmin/). 
 
 First, create/edit a new Ubuntu Package Manager (apt-get) Source Repository URL list:
 ```
