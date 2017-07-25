@@ -208,3 +208,9 @@ The **WebAPI** for the bl-status system is built with the widely used Django RES
 
 The instructions below are taken from: https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-uwsgi-and-nginx-on-ubuntu-16-04
 
+Ubuntu Linux [16.04] comes with Python installed by default.  There are currently two versions/branches of the Python interpretor: 
+
+* Version 2.x for legacy code support 
+* Version 3.x for newer code
+
+Since this is a brand new system, version 3 will be used to develop the RESTful API (Django).
