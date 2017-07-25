@@ -8,7 +8,7 @@ The **Box Loading Status** **[*bl-status*]** system consists of a ***Database***
 * **MongoDB [version 3.4]:** NoSQL Database server (http://mongodb.org)
 * **Django w/ REST Framework:** REST API Server & Administrative Web Application (http://djangoproject.com)
 * **Nginx:** Reverse Proxy / Web Server (http://nginx.org)
-* **Python [version 3]:** Popular and powerful Programming/Scripting Language. Underlying language for Django (http://python.org)
+* **Python [version 3]:** Popular and powerful Programming/Scripting Language. The underlying language for Django (http://python.org)
 * **uWSGI:** Web Site Gateway Interface for Python-based applications (Django) - (http://uwsgi-docs.readthedocs.io/en/latest/)
 * **Angular [version 4]:** Front-end Javascript Framework. Used to develop the GUI Web application (http://angular.io)
 
@@ -216,7 +216,7 @@ Ubuntu Linux [16.04] comes with **Python** installed by default.  There are curr
 Since this is a brand new system, **Version 3** will be used to develop the RESTful API (Django).
 
 There are some commonly-used tools available that aid in devlopment and deployment of Python-based applications.  This includes: 
-* **pip**: the de-facto *Package Manager* for Python
-* **VirtualEnv**: which provides a *"sandboxing"* mechanism for encapsulating a project's dependencies with the specific project
-* **VirtualEnvWrapper**: an add-on for VirtualEnv that provides additional automation tools for working with Python-based projects.
+* **pip**: The de-facto *Package Manager* for Python
+* **VirtualEnv**: Provides a *"sandboxing"* mechanism for encapsulating a project's dependencies with the specific project
+* **VirtualEnvWrapper**: An add-on for *VirtualEnv* that provides additional automation tools for working with Python-based projects.
 
