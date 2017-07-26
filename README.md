@@ -117,7 +117,7 @@ Change the **ssl=1** setting to **ssl=0**
 
 Next, allow the default TCP Port [10000] through the firewall, via the ufw Firewall configuration tool (https://help.ubuntu.com/community/UFW):
 ```
-$ ufw allow from any to any port 10000
+$ sudo ufw allow from any to any port 10000
 ```
 The Webmin GUI will then be availble via the URL: http://172.16.168.110:10000
 
