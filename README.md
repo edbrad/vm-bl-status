@@ -264,3 +264,21 @@ $ echo "export WORKON_HOME=~/Env" >> ~/.bashrc
 $ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 $ source ~/.bashrc
 ```
+
+## /boot partition disk space issue (Kernel)
+As Kernel updates are downloaded and installed, old Kernel distribution package files are left in the /boot partition (for recovery/fallback purposes).  After several updates, the space can become critically low. To remove old Kernel packages free up space, there is a compoound command that can be entered.  This is taken from the folowing site link: https://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot  specifically, the commands below provide insite into the Kernel verisons:
+
+**view current Kernel**
+```
+uname -r
+```
+
+**display a list of all Kernels that are not the current one**
+```
+dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]'
+```
+
+**combine list and delete commands to clear old Kernel packages**
+```
+dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]' | xargs sudo apt-get -y purge
+```
