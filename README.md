@@ -266,7 +266,7 @@ $ source ~/.bashrc
 ```
 
 ## /boot partition disk space issue (Kernel)
-As Kernel updates are downloaded and installed, old Kernel distribution package files are left in the /boot partition (for recovery/fallback purposes).  After several updates, the space can become critically low. To remove old Kernel packages free up space, there is a compoound command that can be entered.  This is taken from the folowing site link: https://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot  specifically, the commands below provide insite into the Kernel verisons:
+As Kernel updates are downloaded and installed, old Kernel distribution package files are left in the **/boot** partition (for recovery/fallback purposes).  After several updates, the space can become critically low. To remove old Kernel packages and free up space, there is a compound/piped command that can be entered.  The instructions below are taken from the folowing site link: https://askubuntu.com/questions/89710/how-do-i-free-up-more-space-in-boot  specifically, the commands below provide insite into the Kernel verisons and what can be deleted:
 
 **view current Kernel**
 ```
@@ -278,7 +278,7 @@ uname -r
 dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]'
 ```
 
-**combine list and delete commands to clear old Kernel packages**
+**combine list command with a purge command to clear all the old Kernel packages**
 ```
 dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]' | xargs sudo apt-get -y purge
 ```
