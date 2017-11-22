@@ -282,3 +282,13 @@ dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `un
 ```
 dpkg -l linux-{image,headers}-"[0-9]*" | awk '/^ii/{ print $2}' | grep -v -e `uname -r | cut -f1,2 -d"-"` | grep -e '[0-9]' | xargs sudo apt-get -y purge
 ```
+## Docker Containers
+**Docker** is emerging as a popular virtualization technology for encapsulating, distributing, deploying, and managing distributed  applications.  It leverages Linux Container services (LXC) to isolate multiple runtime environments on a single operating system instance.  The Docker Containers share the operating system Kernel while maintaining their own runtime namespace (cgroups).  For example, multiple versions of Java (JRE), MongoDB, NGINX, etc. can run in isolation from each other on a sinle instance of a Linux OS.  Docker Containers are portable from one Linux instance to another.  So, a Linux Container (Web Server, Database, etc..) can be built, configured, and tested in development and the same container can be quicky deployed to a production host environment.  This provides consistant/predictable results after deployment (reduces the common: "It works on my machine..." scenario).
+
+**Links**
+https://linuxcontainers.org/
+https://www.infoworld.com/article/3204171/linux/what-is-docker-linux-containers-explained.html
+https://www.docker.com/
+
+Docker is available for Windows, MacOS X, and Linux (of course).  Since Docker is based on a native Linux technology, Windows and OS X require additional resouces (in form of background virtual Linux machines, via *VirtualBox*) in order to perform Docker tasks.  Since the bl-status application will be hosted on a Linux Server (Ubuntu), installation is more "straight forward". The installation instructions for Ubuntu can be found at the following link: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+
