@@ -292,3 +292,5 @@ https://www.docker.com/
 
 Docker is available for Windows, MacOS X, and Linux (of course).  Since Docker is based on a native Linux technology, Windows and OS X require additional resouces (in form of background virtual Linux machines, via *VirtualBox*) in order to perform Docker tasks.  Since the bl-status application will be hosted on a Linux Server (Ubuntu), installation is more "straight forward". The installation instructions for Ubuntu can be found at the following link: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
 
+**More Links**
+https://blog.ssdnodes.com/blog/tutorial-using-docker-and-nginx-to-host-multiple-websites/
