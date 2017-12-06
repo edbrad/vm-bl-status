@@ -297,4 +297,6 @@ Docker is available for Windows, MacOS X, and Linux (of course).  Since Docker i
 * https://mushfiq.me/2016/04/03/building-a-micro-service-with-django-docker/
 * https://www.networkcomputing.com/storage/docker-containers-and-persistent-storage-4-options/1320691891
 
+![vm-bl-status diagram](./images/BL-STATUS-ProductionDeployment.png)
+
 
