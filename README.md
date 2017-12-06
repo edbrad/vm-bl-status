@@ -294,3 +294,5 @@ Docker is available for Windows, MacOS X, and Linux (of course).  Since Docker i
 
 **More Links**
 * https://blog.ssdnodes.com/blog/tutorial-using-docker-and-nginx-to-host-multiple-websites/
+* https://mushfiq.me/2016/04/03/building-a-micro-service-with-django-docker/
+
