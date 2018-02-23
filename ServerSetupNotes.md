@@ -10,4 +10,4 @@ between a given Web Server (*NGINX* for this setup) and a given Python-based Web
 for this setup).
 
 ### Install and Configure VirtualEnv and VirtualEnvWrapper
-A isolated runtime environment will be establised on the server for hosting the Django
+A isolated runtime environment will need be establised on the server for hosting the Python-based Django REST API Application.  This accomplished using the **VirtualEnv** tool with the **VirtualEnvWrapper** add-on.
