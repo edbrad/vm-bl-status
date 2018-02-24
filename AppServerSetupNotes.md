@@ -50,9 +50,9 @@ $ sudo mkdir -p /etc/uwsgi/sites
 ```
 **uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder):***
 
-The configuration uses variables (%) to make the file easy to update and use as a template for setting up other servers.  The two fields that drive the configuration are the following: 
+The configuration uses variables (%) to make the file easy to update and use as a template for setting up other Sites.  The two fields that drive the configuration are the following: 
 
-* **project** *(Django API project name)* 
+* **project** *(Django site name)* 
 * **uid** *(Linux User ID that has the authority to manage the Application files and services)*
 
 ```
