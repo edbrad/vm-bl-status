@@ -20,7 +20,7 @@ $ sudo apt-get update
 $ sudo apt-get install python3-pip
 ```
 
-**2. Upgrade pip to latest version and install VirtualEnv and VirtualEnvWrapper packages**
+**2. Upgrade pip to latest version and install VirtualEnv and VirtualEnvWrapper packages:**
 ```
 $ sudo -H pip3 install --upgrade pip
 $ sudo -H pip3 install virtualenv virtualenvwrapper
