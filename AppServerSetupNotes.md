@@ -1,5 +1,5 @@
 # Application Server Setup Notes
-Notes for setting up a Linux Server (Ubuntu 16.04 LTS) to run a N-Tier Web application with the following components:
+*Notes for setting up a Linux Server (Ubuntu 16.04 LTS) to run a **N-Tier Web Application** with the following components:*
 * **MongoDB** (3.x) NoSQL Document Database Server (Port 27017)
 * **uWSGI** Python Application Server (to Host Django REST API)
 * **NGINX** Reverse Proxy and Web Server (To serve both the API and Client App [Angular] over a single http port [80])
