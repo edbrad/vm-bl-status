@@ -33,7 +33,9 @@ $ echo "export WORKON_HOME=~/Env" >> ~/.bashrc
 $ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 $ source ~/.bashrc
 ```
-### Install uWSGI 
+### Install uWSGI
+uWSGI will be run in "Emperor mode", which allows a master process to manage separate applications automatically given a set of configuration files.
+
 **1. Install Python Development Files:**
 ```
 $ sudo apt-get install python3-dev
@@ -42,4 +44,8 @@ $ sudo apt-get install python3-dev
 ```
 $ sudo -H pip3 install uwsgi
 ```
-
+**3. Create folder for Site configuration files**
+```
+$ sudo mkdir -p /etc/uwsgi/sites
+```
+**uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder)***
