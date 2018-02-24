@@ -49,6 +49,9 @@ $ sudo -H pip3 install uwsgi
 $ sudo mkdir -p /etc/uwsgi/sites
 ```
 **uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder):***
+```
+$ sudo nano /etc/uwsgi/sites/sitename.ini
+```
 
 The configuration uses variables (%) to make the file easy to update and use as a template for setting up other Sites.  The two fields that drive the configuration are the following: 
 
