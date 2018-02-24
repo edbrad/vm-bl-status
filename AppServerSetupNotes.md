@@ -49,6 +49,12 @@ $ sudo -H pip3 install uwsgi
 $ sudo mkdir -p /etc/uwsgi/sites
 ```
 **uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder):***
+
+The configuration uses variables (%) to make the file easy to update and use as a template for setting up other servers.  The two fields that drive the configuration are the following: 
+
+* **project** *(Django API project name)* 
+* **uid** *(Linux User ID that has the authority to manage the Application files and services)*
+
 ```
 [uwsgi]
 project = sitename
@@ -66,4 +72,28 @@ socket = /run/uwsgi/%(project).sock
 chown-socket = %(uid):www-data
 chmod-socket = 660
 vacuum = true
+```
+
+### Resgister uWSGI as a system service (systemd)
+
+**create a systemd Unit file:**
+```
+$ sudo nano /etc/systemd/system/uwsgi.service
+```
+
+**uWSGI sytemd Unit Configuration File Example:***
+```
+[Unit]
+Description=uWSGI Emperor service
+
+[Service]
+ExecStartPre=/bin/bash -c 'mkdir -p /run/uwsgi; chown netadmin:www-data /run/uwsgi'
+ExecStart=/usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
 ```
