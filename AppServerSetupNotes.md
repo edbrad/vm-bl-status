@@ -108,3 +108,27 @@ The Nginx Web Server and Reverse Proxy sits in front the the uWSGI Application S
 ```
 $ sudo apt-get install nginx
 ```
+
+**Create Nginx site configuration file:
+```
+$ sudo nano /etc/nginx/sites-available/bl-status-api
+```
+
+**Nginx Site Configuration File Example:**
+```
+server {
+    listen 80;
+    server_name bl-status-api.emsmail.com;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/netadmin/bl-status-api;
+    }
+
+    location / {
+        include         uwsgi_params;
+        uwsgi_pass      unix:/run/uwsgi/bl-status-api.sock;
+    }
+}
+```
+
