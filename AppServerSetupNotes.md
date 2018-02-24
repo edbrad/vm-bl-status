@@ -102,7 +102,7 @@ WantedBy=multi-user.target
 ```
 
 ## Install and Configure Nginx as a Reverse Proxy
-The **Nginx** Web Server and Reverse Proxy sits in front the the uWSGI Application Server *(exposed to the public interface)*. Incoming requests and outgoing responses *(over http Port 80 in this case)* are routed by Nginx to and from the uWSGI Application Server via a **Unix socket** connection.  This socket-based internal communication has certain performance and security advantages over using http (a http option is avaible, if needed).
+The **Nginx** Web Server and Reverse Proxy sits in front the the uWSGI Application Server *(exposed to the public interface)*. Incoming requests and outgoing responses *(over http Port 80 in this case)* are routed by Nginx to and from the uWSGI Application Server via a **Unix socket** connection.  This socket-based internal communication has certain performance and security advantages over using http *(a http option is avaible, if needed)*.  As a *Reverse Proxy* Nginx allows mulitple sites to be hosted on the same TCP Port *(80 in this case)* It does this by examining the destination url in the incoming http request *(e.g. "bl-status-api.emsmail.com")* and routes the request to site that is configured to respond to the given URL. 
 
 **1. Install Nginx:**
 ```
