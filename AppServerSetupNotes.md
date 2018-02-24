@@ -49,3 +49,21 @@ $ sudo -H pip3 install uwsgi
 $ sudo mkdir -p /etc/uwsgi/sites
 ```
 **uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder)***
+```
+[uwsgi]
+project = sitename
+uid = netadmin
+base = /home/%(uid)
+
+chdir = %(base)/%(project)
+home = %(base)/Env/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = /run/uwsgi/%(project).sock
+chown-socket = %(uid):www-data
+chmod-socket = 660
+vacuum = true
+```
