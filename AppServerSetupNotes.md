@@ -48,7 +48,7 @@ $ sudo -H pip3 install uwsgi
 ```
 $ sudo mkdir -p /etc/uwsgi/sites
 ```
-**uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder)***
+**uWSGI Site Configuration File Example *(/etc/uwsgi/sites folder):***
 ```
 [uwsgi]
 project = sitename
