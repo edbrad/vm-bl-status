@@ -81,7 +81,7 @@ vacuum = true
 $ sudo nano /etc/systemd/system/uwsgi.service
 ```
 
-**uWSGI sytemd Unit Configuration File Example:***
+**uWSGI sytemd Unit Configuration File Example:**
 ```
 [Unit]
 Description=uWSGI Emperor service
