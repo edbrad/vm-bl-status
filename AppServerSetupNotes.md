@@ -102,14 +102,14 @@ WantedBy=multi-user.target
 ```
 
 ## Install and Configure Nginx as a Reverse Proxy
-The Nginx Web Server and Reverse Proxy sits in front the the uWSGI Application Server. Incoming requests and outgoing responses (over http Port 80 in this case) are routed by Nginx to and from uWSGI via a Unix socket connection.  This socket-based internal communication has certain performance and security advantages over http.
+The **Nginx** Web Server and Reverse Proxy sits in front the the uWSGI Application Server *(exposed to the public interface)*. Incoming requests and outgoing responses *(over http Port 80 in this case)* are routed by Nginx to and from the uWSGI Application Server via a **Unix socket** connection.  This socket-based internal communication has certain performance and security advantages over using http (a http option is avaible, if needed).
 
 **1. Install Nginx:**
 ```
 $ sudo apt-get install nginx
 ```
 
-**Create Nginx site configuration file:
+**2. Create Nginx site configuration file:**
 ```
 $ sudo nano /etc/nginx/sites-available/bl-status-api
 ```
