@@ -7,7 +7,7 @@
 **This server configuration is using Python 3**
 
 ## uWSGI Installation and configuration
-uWSGI is an implimetation of the **Web Server Gateway Interface (WSGI)** Specification. It provides a universial interface 
+**uWSGI** is an implimetation of the **Web Server Gateway Interface (WSGI)** Specification. It provides a universial interface 
 between a given Web Server (*NGINX* for this setup) and a given Python-based Web Application (*Django REST Framework* 
 for this setup).
 
@@ -33,3 +33,13 @@ $ echo "export WORKON_HOME=~/Env" >> ~/.bashrc
 $ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
 $ source ~/.bashrc
 ```
+### Install uWSGI 
+**1. Install Python Development Files:**
+```
+$ sudo apt-get install python3-dev
+```
+**2. Install uWSGI Package**
+```
+$ sudo -H pip3 install uwsgi
+```
+
