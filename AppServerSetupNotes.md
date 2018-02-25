@@ -115,14 +115,14 @@ $ sudo nano /etc/nginx/sites-available/bl-status-api
 ```
 
 **Nginx Site Configuration File Example:**
-The site listens on port 80 (http) for requests directed at a specific API URL. Logging data is saved in Home folder of the autoritative Linux Server account.  Favicon not found errors are ignored.  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The Unix socket communication parameters are also specified:
+The site listens on port 80 (http) for requests directed at a specific API URL. Logging data is saved in Linux Home folder of the autoritative Server account.  An error will not be logged for Sites without an icon image file (favicon).  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The Unix socket communication parameters are also specified:
 ```
 server {
     listen 80;
     server_name bl-status-api.emsmail.com;
     
-    access_log /home/netadmin/bl-status-logs/api/access.log;
-    error_log /home/netadmin/bl-status-logs/api/error.log;
+    access_log /home/netadmin/bl-status-logs/api/nginx_access.log;
+    error_log /home/netadmin/bl-status-logs/api/nginx_error.log;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
