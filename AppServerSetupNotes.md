@@ -58,6 +58,7 @@ The configuration uses variables (%) to make the file easy to update and use as 
 * **project** *(Django site name)* 
 * **uid** *(Linux User ID that has the authority to manage the Application files and services)*
 
+In this configuration: *chdir* points to the project folder. *home* specifies the Virtual Environment folder for the applciation. *module* specifies the the Django uWSGI module file for the application (this file is generated as part of the Django project initialization [*manage.py startproject*]).  uWSGI is set with a *master* service, which means the uWSGI server can be gracefully restarted without closing the main sockets. This functionality allows you patch/upgrade the uWSGI server without closing the connection with the web server and losing a single request. The *processes* parameter specifies the number of instances of the application to be spawned in RAM to handle multiple requests concurrently.  These worker processes are monitored and managed by the *master* process. The Unix *socket* communuications file and it's permissions are specified.  *vacuum* tells uWSGI to "clean up" and release all used resources when shutting down.
 ```
 [uwsgi]
 project = bl-status-api
