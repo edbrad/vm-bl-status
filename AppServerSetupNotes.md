@@ -126,12 +126,12 @@ The **Nginx** Web Server and Reverse Proxy sits in front the the uWSGI Applicati
 $ sudo apt-get install nginx
 ```
 
-**2. Create Nginx site configuration file:**
+**2. Create Nginx site configuration file for the Django/uWSGI REST API (bl-status-api):**
 ```
 $ sudo nano /etc/nginx/sites-available/bl-status-api
 ```
 
-**Nginx Site Configuration File Example:**
+**Nginx Django/uWSGI Site Configuration File Example:**
 The site listens on port 80 (http) for requests directed at the URL for the API. Logging data is saved in the Linux Home folder for the autoritative User account.  An error will not be logged for Sites without an icon image file (favicon).  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The uWSGI Unix socket communication parameters are also specified:
 ```
 server {
@@ -159,3 +159,30 @@ server {
 }
 ```
 
+**3. Create Nginx site configuration file for the Angular App (bl-status-app):**
+```
+$ sudo nano /etc/nginx/sites-available/bl-status-app
+```
+
+**Nginx Angular Web Client App Configuration File Example:**
+The site listens on port 80 (http) for requests directed at the URL for the Angular Client-side Appliction. Logging data is saved in the Linux Home folder for the autoritative User account.  An error will not be logged for Sites without an icon image file (favicon). The location is specified for the root folder of the static Angular Web App files (HTML, JavaScript, CSS):
+```
+server {
+    # listen for connections directed at the API URL (Django app)
+    listen 80;
+    server_name bl-status-api.emsmail.com;
+    
+    # specify location for log files
+    access_log /home/netadmin/bl-status-logs/app/nginx_access.log;
+    error_log /home/netadmin/bl-status-logs/app/nginx_error.log;
+
+    # ignore/bypass application icon (favicon) not-found error
+    location = /favicon.ico { access_log off; log_not_found off; }
+    
+    # location of the Angular Client Application
+    location / {
+        root   /home/netadmin/bl-status-app/;
+        index  index.html;
+    }
+}
+```
