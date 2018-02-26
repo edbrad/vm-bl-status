@@ -97,19 +97,24 @@ $ sudo nano /etc/systemd/system/uwsgi.service
 ```
 
 **uWSGI sytemd Unit Configuration File Example:**
+This example describes the service and specifies the location of the socket communication data ("/run/uwsgi") and where the Site definitions are located (for management). It's tells systemd to auto-restart the service when a critial failure occurs.  The service will run at "normal" Linux run levels (2, 3, & 4):
 ```
 [Unit]
 Description=uWSGI Emperor service
 
 [Service]
+# set up Unix Socket communications
 ExecStartPre=/bin/bash -c 'mkdir -p /run/uwsgi; chown netadmin:www-data /run/uwsgi'
+# enable emperor mode: location for sites to manage
 ExecStart=/usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+# auto-restart
 Restart=always
 KillSignal=SIGQUIT
 Type=notify
 NotifyAccess=all
 
 [Install]
+# available at Linux runlevels 2, 3, & 4
 WantedBy=multi-user.target
 ```
 
