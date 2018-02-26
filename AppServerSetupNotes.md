@@ -132,7 +132,7 @@ $ sudo nano /etc/nginx/sites-available/bl-status-api
 ```
 
 **Nginx Django/uWSGI Site Configuration File Example:**
-The site listens on port 80 (http) for requests directed at the URL for the API. Logging data is saved in the Linux Home folder for the autoritative User account.  An error will not be logged for Sites without an icon image file (favicon).  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The uWSGI Unix socket communication parameters are also specified:
+The site listens on port 80 (http) for requests directed at the URL for the API. Logging data is saved in the Linux Home folder for the autoritative User account (*these folders need to be created prior to starting the Nginx service*).  An error will not be logged for Sites without an icon image file (*favicon.ico*).  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The uWSGI Unix socket communication parameters are also specified:
 ```
 server {
     # listen for connections directed at the API URL (Django app)
