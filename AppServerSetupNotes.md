@@ -132,7 +132,7 @@ $ sudo nano /etc/nginx/sites-available/bl-status-api
 ```
 
 **Nginx Django/uWSGI Site Configuration File Example:**
-The site listens on port 80 (http) for requests directed at the URL for the API. Logging data is saved in the Linux Home folder for the autoritative User account (*these folders need to be created prior to starting the Nginx service*).  An error will not be logged for Sites without an icon image file (*favicon.ico*).  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The uWSGI Unix socket communication parameters are also specified:
+The site listens on port 80 (http) for requests directed at the URL for the API. Logging data is saved in the Linux Home folder for the autoritative User account (*these folders need to be already created prior to starting the Nginx service*).  An error will not be logged for Sites without an icon image file (*favicon.ico*).  The Django folder containing the application's static assets is defined, along with the root entry folder for the application. The uWSGI Unix socket communication parameters are also specified:
 ```
 server {
     # listen for connections directed at the API URL (Django app)
@@ -165,7 +165,7 @@ $ sudo nano /etc/nginx/sites-available/bl-status-app
 ```
 
 **Nginx Angular Web Client App Configuration File Example:**
-The site listens on port 80 (http) for requests directed at the URL for the Angular Client-side Appliction. Logging data is saved in the Linux Home folder for the autoritative User account.  An error will not be logged for Sites without an icon image file (favicon). The location is specified for the root folder of the static Angular Web App files (HTML, JavaScript, CSS):
+The site listens on port 80 (http) for requests directed at the URL for the Angular Client-side Appliction. Logging data is saved in the Linux Home folder for the autoritative User account (*these folders need to be already created prior to starting the Nginx service*).  An error will not be logged for Sites without an icon image file (favicon.ico). The location is specified for the root folder of the static Angular Web App files (HTML, JavaScript, CSS):
 ```
 server {
     # listen for connections directed at the Client App URL (Angular)
@@ -186,3 +186,17 @@ server {
     }
 }
 ```
+
+**4. Enable the Sites:**
+Upon starting, the Nginx service, by default, scans a specific folder for the Site configuration file(s) (*/etc/nginx/sites-enabled*).  Nginx then loads all of the available configuration(s). Sites are enabled by copying or linking the given Site configuration file (from */etc/nginx/sites-available*) to the enabled Site folder.
+```
+netadmin@ubuntu:~$ ls -la /etc/nginx/sites-enabled
+total 8
+drwxr-xr-x 2 root root 4096 Feb 26 12:12 .
+drwxr-xr-x 6 root root 4096 Feb 24 07:56 ..
+lrwxrwxrwx 1 root root   40 Feb 26 11:55 bl-status-api -> /etc/nginx/sites-available/bl-status-api
+lrwxrwxrwx 1 root root   40 Feb 26 12:12 bl-status-app -> /etc/nginx/sites-available/bl-status-app
+lrwxrwxrwx 1 root root   34 Feb 24 07:56 default -> /etc/nginx/sites-available/default
+netadmin@ubuntu:~$
+```
+
