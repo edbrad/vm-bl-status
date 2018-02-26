@@ -168,9 +168,9 @@ $ sudo nano /etc/nginx/sites-available/bl-status-app
 The site listens on port 80 (http) for requests directed at the URL for the Angular Client-side Appliction. Logging data is saved in the Linux Home folder for the autoritative User account.  An error will not be logged for Sites without an icon image file (favicon). The location is specified for the root folder of the static Angular Web App files (HTML, JavaScript, CSS):
 ```
 server {
-    # listen for connections directed at the API URL (Django app)
+    # listen for connections directed at the Client App URL (Angular)
     listen 80;
-    server_name bl-status-api.emsmail.com;
+    server_name bl-status.emsmail.com;
     
     # specify location for log files
     access_log /home/netadmin/bl-status-logs/app/nginx_access.log;
