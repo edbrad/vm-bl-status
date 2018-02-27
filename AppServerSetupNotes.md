@@ -222,7 +222,6 @@ $ sudo systemctl enable uwsgi
 To verify the services are enabled, reboot the server (*$ sudo reboot now*), then query the status of the services.  The output should be similar to what is shown below:
 ```
 netadmin@ubuntu:~$ sudo systemctl status nginx
-[sudo] password for netadmin:
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
    Active: active (running) since Tue 2018-02-27 11:14:07 PST; 2h 54min ago
@@ -237,6 +236,7 @@ netadmin@ubuntu:~$ sudo systemctl status nginx
 Feb 27 11:14:07 ubuntu systemd[1]: Starting A high performance web server and a reverse proxy server...
 Feb 27 11:14:07 ubuntu systemd[1]: Started A high performance web server and a reverse proxy server.
 
+netadmin@ubuntu:~$ sudo systemctl status uwsgi
 ● uwsgi.service - uWSGI Emperor service
    Loaded: loaded (/etc/systemd/system/uwsgi.service; disabled; vendor preset: enabled)
    Active: active (running) since Tue 2018-02-27 13:25:07 PST; 44min ago
@@ -262,6 +262,5 @@ Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 4 (pid: 1725, cores: 1)
 Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 5 (pid: 1726, cores: 1)
 Feb 27 13:25:07 ubuntu uwsgi[1717]: Tue Feb 27 13:25:07 2018 - [emperor] vassal bl-status-api.ini has been spawned
 Feb 27 13:25:07 ubuntu uwsgi[1717]: Tue Feb 27 13:25:07 2018 - [emperor] vassal bl-status-api.ini is ready to accept requests
-
 ```
 
