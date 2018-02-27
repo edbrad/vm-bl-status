@@ -188,7 +188,13 @@ server {
 ```
 
 **4. Enable the Sites:**
-Upon starting, the Nginx service, by default, scans a specific folder for the Site configuration file(s) (*/etc/nginx/sites-enabled*).  Nginx then loads all of the available configuration(s). Sites are enabled by copying or linking the given Site configuration file (from */etc/nginx/sites-available*) to the enabled Site folder.
+Upon starting, the Nginx service, by default, scans a specific folder for the Site configuration file(s) (*/etc/nginx/sites-enabled*).  Nginx then loads all of the available configuration(s). Sites are enabled by copying or linking the given Site configuration file (from */etc/nginx/sites-available*) to the enabled Site folder.  The most common practice is to link (Linux symbolic link)... This is done with the following commands:
+```
+$ sudo ln -s /etc/nginx/sites-available/bl-status-api /etc/nginx/sites-enabled
+$ sudo ln -s /etc/nginx/sites-available/bl-status-app /etc/nginx/sites-enabled
+```
+
+To verify that the link worked, type the following command:
 ```
 netadmin@ubuntu:~$ ls -la /etc/nginx/sites-enabled
 total 8
@@ -199,4 +205,7 @@ lrwxrwxrwx 1 root root   40 Feb 26 12:12 bl-status-app -> /etc/nginx/sites-avail
 lrwxrwxrwx 1 root root   34 Feb 24 07:56 default -> /etc/nginx/sites-available/default
 netadmin@ubuntu:~$
 ```
+The Site configuration files in the "sites-enabled" folder are are now shown as links (->) to files in the "site-available" folder. The Nginx service will then load the linked configurations automatically at start-up.
+
+
 
