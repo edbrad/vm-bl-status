@@ -134,6 +134,29 @@ After the inital Operating System installation is complete, remote Terminal acce
 
 ![mobaxterm](./images/mobaxterm.PNG)
 
+### Misc package installation and other configuration changes
+
+Install **Git** source code control client
+```
+$ sudo apt-get install git
+```
+
+Install **HTOP** Linux Interactive Process Viewer utility
+```
+$ sudo apt-get install htop
+```
+
+Increase size of history (# of commands remembered)
+```
+$ sudo nano ~./bashrc
+```
+Change $HISTSIZE to 2000 or some other larger number
+Reboot, or apply the changes directly by entering the following command:
+```
+$ source /.bashrc
+```
+
+
 ### Install MongoDB Database Server
 **MongoDB**, a widely-used Open Source NoSQL database system, is used to store the Box Loading status information.  The REST API will process incoming **CRUD** (**C**reate **R**ead **U**pdate **D**elete) requests (mapped from http verbs: POST, GET, PUT, & DELETE) using the **PyMongo** library for MongoDB (https://api.mongodb.com/python/current/). The PyMongo library allows the Django Python code to connect and submit quereies to the MongoDB database.  The bl-status system uses the freely available **Community Edition** of MongoDB.  The current version is: **[3.4]**. 
 
