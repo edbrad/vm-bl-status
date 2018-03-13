@@ -13,6 +13,19 @@ The first step is to import the MongoDB public GPG/PGP key file into the Ubuntu 
 ```
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 ```
+The output from this command should be similar to what is shown below:
+
+```
+Executing: /tmp/tmp.Q8XWsuPMns/gpg.1.sh --keyserver
+hkp://keyserver.ubuntu.com:80
+--recv
+0C49F3730359A14518585931BC711F9BA15703C6
+gpg: requesting key A15703C6 from hkp server keyserver.ubuntu.com
+gpg: key A15703C6: public key "MongoDB 3.4 Release Signing Key <packaging@mongodb.com>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1  (RSA: 1)
+```
+
 Next, create a new Package Manager repository list file for MongoDB:
 ```
 $ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
