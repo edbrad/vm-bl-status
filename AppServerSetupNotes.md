@@ -81,6 +81,12 @@ mongodb.service - High-performance, schema-free document-oriented database
 ```
 $ sudo systemctl enable mongodb
 ```
+
+The output should be as shown below:
+```
+Created symlink from /etc/systemd/system/multi-user.target.wants/mongodb.service to /etc/systemd/system/mongodb.service.
+```
+
 For management, testing, and diagnostic purposes, external/LAN access to the MongoDB server is required.  The MongoDB IP binding configuration setting must be updated to allow outside/LAN IP access.  Also, the Linux Firewall must be updated to allow external/LAN access to the TCP Port that MongoDB listens on.
 
 To allow external/LAN access to the database: 
