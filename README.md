@@ -94,7 +94,7 @@ $ sudo nano /etc/apt/sources.list.d/webmin.list
 ```
 Then, add the line, below, to the text file and save it:
 ```
-$ deb http://download.webmin.com/download/repository sarge contrib
+deb http://download.webmin.com/download/repository sarge contrib
 ```
 Next, get the Webmin PGP key signature file, which is required by the Package Manager to trust the repository:
 ```
