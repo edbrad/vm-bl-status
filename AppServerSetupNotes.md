@@ -212,23 +212,23 @@ server {
     # listen for connections directed at the API URL (Django app)
     listen 80;
     server_name bl-status-api.emsmail.com;
-    
+
     # specify location for log files
     access_log /home/netadmin/bl-status-logs/api/nginx_access.log;
     error_log /home/netadmin/bl-status-logs/api/nginx_error.log;
 
     # ignore/bypass application icon (favicon) not-found error
     location = /favicon.ico { access_log off; log_not_found off; }
-    
+
     # specify location for Django static files
     location /static/ {
-        root /home/netadmin/bl-status-api;
+        root /home/netadmin/bl-status-api/bl_status_api;
     }
 
     # specify Unix Socket for Nginx/Django comunications
     location / {
         include         uwsgi_params;
-        uwsgi_pass      unix:/run/uwsgi/bl-status-api.sock;
+        uwsgi_pass      unix:/run/uwsgi/bl_status_api.sock;
     }
 }
 ```
