@@ -133,40 +133,34 @@ $ sudo mkdir -p /etc/uwsgi/sites
 $ sudo nano /etc/uwsgi/sites/bl-status-api.ini
 ```
 
-The configuration uses variables (%) to make the file easy to update and use as a template for setting up other Sites.  The two fields that drive the configuration are the following: 
-
-* **project** *(Django site name)* 
-* **uid** *(Linux User ID that has the authority to manage the Application files and services)*
-
-In this configuration: *chdir* points to the project folder. *home* specifies the Virtual Environment folder for the applciation. *module* specifies the the Django uWSGI module file for the application (this file is generated as part of the Django project initialization [*manage.py startproject*]).  uWSGI is set with a *master* service, which means the uWSGI server can be gracefully restarted without closing the main sockets. This functionality allows you patch/upgrade the uWSGI server without closing the connection with the web server and losing a single request. The *processes* parameter specifies the number of instances of the application to be spawned in RAM to handle multiple requests concurrently.  These worker processes are monitored and managed by the *master* process. The Unix *socket* communuications file and it's permissions are specified.  *vacuum* tells uWSGI to "clean up" and release all used resources when shutting down.
+In this configuration: *chdir* points to the project folder. *home* specifies the Virtual Environment folder for the applciation. *module* specifies the the Django uWSGI module file for the application (this file is generated as part of the Django project initialization [*manage.py startproject*]).  uWSGI is set with a *master* service, which means the uWSGI server can be gracefully restarted without closing the main sockets. This functionality allows you patch/upgrade the uWSGI server without closing the connection with the web server and losing a single request. The *processes* parameter specifies the number of instances of the application to be spawned in RAM to handle multiple requests concurrently.  These worker processes are monitored and managed by the *master* process. The Unix *socket* communuications file and it's permissions are specified.  *vacuum* tells uWSGI to "clean up" and release all used resources when shutting down. The uwsgi logging folder is also specified.
 ```
 [uwsgi]
-# project/app name
-project = bl-status-api
-# authoritative user ID
-uid = netadmin
-# parent folder of project folder
-base = /home/%(uid)
-
 # project folder location
-chdir = %(base)/%(project)
+chdir = /home/netadmin/bl-status-api/bl_status_api
+
 # virtual environment (dependencies) folder location
-home = %(base)/Env/%(project)
+home = /home/netadmin/Env/bl-status-api
+
 # wsgi application definition file name
-module = %(project).wsgi:application
+module = bl_status_api.wsgi:application
 
 # enable master process
 master = true
+
 # number of worker processes
 processes = 5
 
 # unix socket communications (with Nginx) file
-socket = /run/uwsgi/%(project).sock
-chown-socket = %(uid):www-data
+socket = /run/uwsgi/bl_status_api.sock
+chown-socket = netadmin:www-data
 chmod-socket = 660
 
 # auto clean-up on shutdown
 vacuum = true
+
+# logging
+logto = /var/log/uwsgi/%n.log
 ```
 
 ### Resgister uWSGI as a system service (systemd)
