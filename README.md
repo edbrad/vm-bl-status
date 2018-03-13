@@ -124,7 +124,11 @@ The Webmin GUI will then be availble via the URL: http://172.16.168.110:10000
 ![webmin dashboard](./images/webmin_dashboard.PNG)
 
 ### External Access from a Terminal
-After the inital Operating System installation is complete, remote Terminal access to the server is more convenient than working directly in the local console (VMWare). Linux is a true multi-user Operating System. And, like with a traditional Mainframe OS, Linux allows for mutliple, simultaneous, Terminal connections/sessions over a TCP/IP network. Telnet (or TN3270) has been used in the past, but modern Unix/Linux terminal sessions are implemented through **SSH** (Secure Shell). SSH-based connections are secured through encryption.
+After the inital Operating System installation is complete, remote Terminal access to the server is more convenient than working directly in the local console (VMWare). Linux is a true multi-user Operating System. And, like with a traditional Mainframe OS, Linux allows for mutliple, simultaneous, Terminal connections/sessions over a TCP/IP network. Telnet (or TN3270) has been used in the past, but modern Unix/Linux terminal sessions are implemented through **SSH** (Secure Shell). SSH-based connections are secured through encryption. In order to allow SSH traffic through the enabled firewall **(UFW)** enter following command:
+
+```
+$ sudo ufw allow ssh
+```
 
 **PuTTY** (http://www.putty.org) is a popular, bare-bones, and freely available, client-side program for SSH terminal sessions. It provides all the basic Terminal fucntionality needed to remotely work on a Linux server.
 
