@@ -298,7 +298,7 @@ To verify the services are enabled, reboot the server (*$ sudo reboot now*), the
 netadmin@ubuntu:/etc/uwsgi/sites$ sudo systemctl status nginx
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
-   Active: active (running) since Tue 2018-03-13 10:15:20 PDT; 17min ago
+   Active: active (running) since Tue 2018-03-13 10:15:20 PDT; 1h 11min ago
   Process: 1032 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
   Process: 1022 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
  Main PID: 1035 (nginx)
@@ -309,12 +309,12 @@ netadmin@ubuntu:/etc/uwsgi/sites$ sudo systemctl status nginx
 
 Mar 13 10:15:20 ubuntu systemd[1]: Starting A high performance web server and a reverse proxy server...
 Mar 13 10:15:20 ubuntu systemd[1]: Started A high performance web server and a reverse proxy server.
-netadmin@ubuntu:/etc/uwsgi/sites$
-netadmin@ubuntu:/etc/uwsgi/sites$
+
+
 netadmin@ubuntu:/etc/uwsgi/sites$ sudo systemctl status uwsgi
 ● uwsgi.service - uWSGI Emperor service
    Loaded: loaded (/etc/systemd/system/uwsgi.service; enabled; vendor preset: enabled)
-   Active: active (running) since Tue 2018-03-13 10:32:35 PDT; 25s ago
+   Active: active (running) since Tue 2018-03-13 10:32:35 PDT; 54min ago
   Process: 1261 ExecStartPre=/bin/bash -c mkdir -p /run/uwsgi; chown netadmin:www-data /run/uwsgi (code=exited, status=0/SUCCESS)
  Main PID: 1267 (uwsgi)
    Status: "The Emperor is governing 1 vassals"
@@ -327,8 +327,6 @@ netadmin@ubuntu:/etc/uwsgi/sites$ sudo systemctl status uwsgi
            ├─1275 /usr/local/bin/uwsgi --ini bl-status-api.ini
            └─1276 /usr/local/bin/uwsgi --ini bl-status-api.ini
 
-Mar 13 10:32:35 ubuntu uwsgi[1267]: *** WARNING: you are running uWSGI without its master process manager ***
-Mar 13 10:32:35 ubuntu uwsgi[1267]: your processes number limit is 7785
 Mar 13 10:32:35 ubuntu uwsgi[1267]: your memory page size is 4096 bytes
 Mar 13 10:32:35 ubuntu uwsgi[1267]: detected max file descriptor number: 1024
 Mar 13 10:32:35 ubuntu uwsgi[1267]: *** starting uWSGI Emperor ***
@@ -337,6 +335,8 @@ Mar 13 10:32:35 ubuntu uwsgi[1267]: *** has_emperor mode detected (fd: 7) ***
 Mar 13 10:32:35 ubuntu uwsgi[1267]: [uWSGI] getting INI configuration from bl-status-api.ini
 Mar 13 10:32:35 ubuntu uwsgi[1267]: Tue Mar 13 10:32:35 2018 - [emperor] vassal bl-status-api.ini has been spawned
 Mar 13 10:32:35 ubuntu uwsgi[1267]: Tue Mar 13 10:32:35 2018 - [emperor] vassal bl-status-api.ini is ready to accept requests
+Mar 13 11:05:03 ubuntu uwsgi[1267]: Tue Mar 13 11:05:03 2018 - [emperor] vassal bl-status-api.ini is now loyal
+Mar 13 11:05:32 ubuntu uwsgi[1267]: Tue Mar 13 11:05:32 2018 - [emperor] vassal bl-status-api.ini is now loyal
 netadmin@ubuntu:/etc/uwsgi/sites$
 ```
 
