@@ -119,7 +119,7 @@ Next, allow the default TCP Port [10000] through the firewall, via the ufw Firew
 ```
 $ sudo ufw allow from any to any port 10000
 ```
-The Webmin GUI will then be availble via the URL: http://172.16.168.110:10000
+After rebooting the server, the Webmin GUI will then be availble via the URL: http://172.16.168.110:10000
 
 ![webmin dashboard](./images/webmin_dashboard.PNG)
 
