@@ -36,7 +36,7 @@ $ sudo apt-get update
 ```
 Next, download/install the MongoDB software:
 ```
-sudo apt-get install -y mongodb-org
+$ sudo apt-get install -y mongodb-org
 ```
 After installing the MongoDB, it needs to be configured to automatically start up when the Operating System boots (or re-boots). In order to do this, the Ubuntu Linux service manager **(systemd)** must be confifured to manage MongoDB (taken from:	https://docs.mongodb.com/manual/tutorial/install-mongodb-enterprise-on-ubuntu/ & https://www.mkyong.com/mongodb/mongodb-allow-remote-access/):
 
