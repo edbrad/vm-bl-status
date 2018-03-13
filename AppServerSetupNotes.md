@@ -245,18 +245,18 @@ server {
     # listen for connections directed at the Client App URL (Angular)
     listen 80;
     server_name bl-status.emsmail.com;
-    
+
     # specify location for log files
     access_log /home/netadmin/bl-status-logs/app/nginx_access.log;
     error_log /home/netadmin/bl-status-logs/app/nginx_error.log;
 
     # ignore/bypass application icon (favicon) not-found error
     location = /favicon.ico { access_log off; log_not_found off; }
-    
+
     # location of the Angular Client Application
     location / {
-        root   /home/netadmin/bl-status-app/;
-        index  index.html;
+        root /home/netadmin/bl-status-app/;
+        index index.html;
     }
 }
 ```
