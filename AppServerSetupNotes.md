@@ -295,46 +295,48 @@ $ sudo systemctl enable uwsgi
 
 To verify the services are enabled, reboot the server (*$ sudo reboot now*), then query the status of the services.  The output should be similar to what is shown below:
 ```
-netadmin@ubuntu:~$ sudo systemctl status nginx
+netadmin@ubuntu:/etc/uwsgi/sites$ sudo systemctl status nginx
 ● nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
-   Active: active (running) since Tue 2018-02-27 11:14:07 PST; 2h 54min ago
-  Process: 1029 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
-  Process: 1012 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
- Main PID: 1039 (nginx)
+   Active: active (running) since Tue 2018-03-13 10:15:20 PDT; 17min ago
+  Process: 1032 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+  Process: 1022 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+ Main PID: 1035 (nginx)
    CGroup: /system.slice/nginx.service
-           ├─1039 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
-           ├─1040 nginx: worker process
-           └─1041 nginx: worker process
+           ├─1035 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
+           ├─1036 nginx: worker process
+           └─1037 nginx: worker process
 
-Feb 27 11:14:07 ubuntu systemd[1]: Starting A high performance web server and a reverse proxy server...
-Feb 27 11:14:07 ubuntu systemd[1]: Started A high performance web server and a reverse proxy server.
-
-netadmin@ubuntu:~$ sudo systemctl status uwsgi
+Mar 13 10:15:20 ubuntu systemd[1]: Starting A high performance web server and a reverse proxy server...
+Mar 13 10:15:20 ubuntu systemd[1]: Started A high performance web server and a reverse proxy server.
+netadmin@ubuntu:/etc/uwsgi/sites$
+netadmin@ubuntu:/etc/uwsgi/sites$
+netadmin@ubuntu:/etc/uwsgi/sites$ sudo systemctl status uwsgi
 ● uwsgi.service - uWSGI Emperor service
-   Loaded: loaded (/etc/systemd/system/uwsgi.service; disabled; vendor preset: enabled)
-   Active: active (running) since Tue 2018-02-27 13:25:07 PST; 44min ago
-  Process: 1713 ExecStartPre=/bin/bash -c mkdir -p /run/uwsgi; chown netadmin:www-data /run/uwsgi (code=exited, status=0/SUCCESS)
- Main PID: 1717 (uwsgi)
+   Loaded: loaded (/etc/systemd/system/uwsgi.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 2018-03-13 10:32:35 PDT; 25s ago
+  Process: 1261 ExecStartPre=/bin/bash -c mkdir -p /run/uwsgi; chown netadmin:www-data /run/uwsgi (code=exited, status=0/SUCCESS)
+ Main PID: 1267 (uwsgi)
    Status: "The Emperor is governing 1 vassals"
    CGroup: /system.slice/uwsgi.service
-           ├─1717 /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
-           ├─1720 /usr/local/bin/uwsgi --ini bl-status-api.ini
-           ├─1722 /usr/local/bin/uwsgi --ini bl-status-api.ini
-           ├─1723 /usr/local/bin/uwsgi --ini bl-status-api.ini
-           ├─1724 /usr/local/bin/uwsgi --ini bl-status-api.ini
-           ├─1725 /usr/local/bin/uwsgi --ini bl-status-api.ini
-           └─1726 /usr/local/bin/uwsgi --ini bl-status-api.ini
+           ├─1267 /usr/local/bin/uwsgi --emperor /etc/uwsgi/sites
+           ├─1270 /usr/local/bin/uwsgi --ini bl-status-api.ini
+           ├─1272 /usr/local/bin/uwsgi --ini bl-status-api.ini
+           ├─1273 /usr/local/bin/uwsgi --ini bl-status-api.ini
+           ├─1274 /usr/local/bin/uwsgi --ini bl-status-api.ini
+           ├─1275 /usr/local/bin/uwsgi --ini bl-status-api.ini
+           └─1276 /usr/local/bin/uwsgi --ini bl-status-api.ini
 
-Feb 27 13:25:07 ubuntu uwsgi[1717]: dropping root privileges after application loading
-Feb 27 13:25:07 ubuntu uwsgi[1717]: *** uWSGI is running in multiple interpreter mode ***
-Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI master process (pid: 1720)
-Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 1 (pid: 1722, cores: 1)
-Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 2 (pid: 1723, cores: 1)
-Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 3 (pid: 1724, cores: 1)
-Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 4 (pid: 1725, cores: 1)
-Feb 27 13:25:07 ubuntu uwsgi[1717]: spawned uWSGI worker 5 (pid: 1726, cores: 1)
-Feb 27 13:25:07 ubuntu uwsgi[1717]: Tue Feb 27 13:25:07 2018 - [emperor] vassal bl-status-api.ini has been spawned
-Feb 27 13:25:07 ubuntu uwsgi[1717]: Tue Feb 27 13:25:07 2018 - [emperor] vassal bl-status-api.ini is ready to accept requests
+Mar 13 10:32:35 ubuntu uwsgi[1267]: *** WARNING: you are running uWSGI without its master process manager ***
+Mar 13 10:32:35 ubuntu uwsgi[1267]: your processes number limit is 7785
+Mar 13 10:32:35 ubuntu uwsgi[1267]: your memory page size is 4096 bytes
+Mar 13 10:32:35 ubuntu uwsgi[1267]: detected max file descriptor number: 1024
+Mar 13 10:32:35 ubuntu uwsgi[1267]: *** starting uWSGI Emperor ***
+Mar 13 10:32:35 ubuntu systemd[1]: Started uWSGI Emperor service.
+Mar 13 10:32:35 ubuntu uwsgi[1267]: *** has_emperor mode detected (fd: 7) ***
+Mar 13 10:32:35 ubuntu uwsgi[1267]: [uWSGI] getting INI configuration from bl-status-api.ini
+Mar 13 10:32:35 ubuntu uwsgi[1267]: Tue Mar 13 10:32:35 2018 - [emperor] vassal bl-status-api.ini has been spawned
+Mar 13 10:32:35 ubuntu uwsgi[1267]: Tue Mar 13 10:32:35 2018 - [emperor] vassal bl-status-api.ini is ready to accept requests
+netadmin@ubuntu:/etc/uwsgi/sites$
 ```
 
