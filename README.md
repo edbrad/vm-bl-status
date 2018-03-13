@@ -152,12 +152,12 @@ $ sudo apt-get install htop
 
 Increase size of history (# of commands remembered)
 ```
-$ sudo nano ~./bashrc
+$ sudo nano .bashrc
 ```
 Change $HISTSIZE to 2000 or some other larger number
 Reboot, or apply the changes directly by entering the following command:
 ```
-$ source /.bashrc
+$ source .bashrc
 ```
 
 
