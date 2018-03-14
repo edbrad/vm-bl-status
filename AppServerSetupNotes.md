@@ -147,7 +147,7 @@ $ sudo -H pip3 install uwsgi
 ```
 $ sudo mkdir -p /etc/uwsgi/sites
 ```
-**4. Create uWSGI logging folder and configure permissions
+**4. Create uWSGI logging folder and configure permissions**
 ```
 $ sudo mkdir /var/log/uwsgi
 $ sudo chown -R netadmin /var/log/uwsgi
